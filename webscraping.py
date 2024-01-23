@@ -32,12 +32,16 @@ def getCardsInfo(box, booster):
 
     return cards_list
 
-all_cards_list = []
+def getCardsList(limit):
+    all_cards_list = []
+    for page in range(1, limit+1):
+        url = f'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&&page={page}'
+        box = getBox(url)
+        cards_list = getCardsInfo(box, 'bt1')
+        all_cards_list.extend(cards_list)
 
-for page in range (1,8):
-    url = f'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&&page={page}'
-    box = getBox(url)
-    cards_list = getCardsInfo(box, 'bt1')
-    all_cards_list.extend(cards_list)
-    
-print(f"Numero de cartas guardads: {len(all_cards_list)}")
+    return all_cards_list
+
+
+cardsList = getCardsList(7)
+print(f"Numero de cartas guardads: {len(cardsList)}")
