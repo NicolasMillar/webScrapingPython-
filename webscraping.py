@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import time
 
 def getBox(url):
     website = url
@@ -32,16 +31,29 @@ def getCardsInfo(box, booster):
 
     return cards_list
 
-def getCardsList(limit, Baseurl):
+def getCardsList(limit, Baseurl, booster):
     all_cards_list = []
+
     for page in range(1, limit+1):
         url = f'{Baseurl}{page}'
         box = getBox(url)
-        cards_list = getCardsInfo(box, 'bt1')
+        cards_list = getCardsInfo(box, booster)
         all_cards_list.extend(cards_list)
 
     return all_cards_list
 
 
-cardsList = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&&page=')
-print(f"Numero de cartas guardads: {len(cardsList)}")
+cardsBt1 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt1')
+cardsBt2 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt2-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt2')
+cardsBt3 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt3-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt3')
+cardsBt4 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt4-great-legend?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt4')
+cardsBt5 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt5-battle-of-omni?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt5')
+cardsBt6 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt6-double-diamond?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt6')
+cardsBt7 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt7-next-adventure?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt7')
+cardsBt8 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt8-new-awakening?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt8')
+cardsBt9 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt9-x-record?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt9')
+cardsBt10 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt10-xros-encounter?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt10')
+cardsBt11 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt11-dimensional-phase?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt11')
+cardsBt12 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt12-across-time?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt12')
+cardsBt13 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt13-versus-royal-knights?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt13')
+cardsBt14 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt14-blast-ace?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
