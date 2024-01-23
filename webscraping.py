@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import time
 
 def getBox(url):
     website = url
@@ -31,15 +32,12 @@ def getCardsInfo(box, booster):
 
     return cards_list
 
+all_cards_list = []
 
-box = getBox('https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&&page=1')
-cards_list = getCardsInfo(box, 'bt1')
-
-if cards_list:
-    print("Información guardada:")
-    for card in cards_list:
-        print(f"Nombre: {card['name']}")
-        print(f"Imagen: {card['img']}")
-        print(f"Booster: {card['booster']}")
-else:
-    print("No se encontró información para guardar.")
+for page in range (1,8):
+    url = f'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&&page={page}'
+    box = getBox(url)
+    cards_list = getCardsInfo(box, 'bt1')
+    all_cards_list.extend(cards_list)
+    
+print(f"Numero de cartas guardads: {len(all_cards_list)}")
