@@ -8,11 +8,14 @@ content = result.text
 
 soup = BeautifulSoup(content, 'lxml')
 box = soup.find('article', class_='col-lg-9')
-products_list = []
+card_list = []
 
 if box:
     cards = box.find_all('div', class_='bs-product')
 
     for card in cards:
         card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
-        print(card_name)
+        card_price = card.find('div', class_='bs-product-final-price').text.strip()
+        card_img = card.find('img').get('data-src')
+        card_url = card.find('a')['href']
+        print(card_url)
