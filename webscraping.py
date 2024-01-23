@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
+baseUrl = 'https://www.guildreams.com'
 website = 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC'
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 result = requests.get(website, headers=headers)
@@ -17,5 +18,5 @@ if box:
         card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
         card_price = card.find('div', class_='bs-product-final-price').text.strip()
         card_img = card.find('img').get('data-src')
-        card_url = card.find('a')['href']
+        card_url = baseUrl + card.find('a')['href']
         print(card_url)
