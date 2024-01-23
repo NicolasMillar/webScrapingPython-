@@ -10,4 +10,9 @@ soup = BeautifulSoup(content, 'lxml')
 box = soup.find('article', class_='col-lg-9')
 products_list = []
 
-print(box.prettify())
+if box:
+    cards = box.find_all('div', class_='bs-product')
+
+    for card in cards:
+        card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
+        print(card_name)
