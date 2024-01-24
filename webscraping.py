@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
+import psycopg2 
+import os 
+from dotenv import load_dotenv
 
 def getBox(url):
     website = url
@@ -43,7 +46,7 @@ def getCardsList(limit, Baseurl, booster):
     return all_cards_list
 
 
-cardsBt1 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt1')
+"""  cardsBt1 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt1')
 cardsBt2 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt2-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt2')
 cardsBt3 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt3-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt3')
 cardsBt4 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt4-great-legend?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt4')
@@ -57,3 +60,28 @@ cardsBt11 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt11-
 cardsBt12 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt12-across-time?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt12')
 cardsBt13 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt13-versus-royal-knights?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt13')
 cardsBt14 = getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt14-blast-ace?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
+cardsEx1 = getCardsList(4, 'https://www.guildreams.com/collection/digimon-ex1-classic-collection?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
+cardsEx2 = getCardsList(4, 'https://www.guildreams.com/collection/digimon-ex2-digital-hazard?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
+cardsEx3 = getCardsList(4, 'https://www.guildreams.com/collection/digimon-ex3-draconic-roar?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
+cardsEx4 = getCardsList(4, 'https://www.guildreams.com/collection/digimon-ex4-alternative-being?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')
+cardsEx5 = getCardsList(4, 'https://www.guildreams.com/collection/digimon-ex5-animal-colosseum?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt14')  """
+
+load_dotenv()
+try:
+    connection = psycopg2.connect(
+        dbname=os.getenv('db_name'),
+        user=os.getenv('db_user'),
+        password=os.getenv('db_password'),
+        host=os.getenv('db_host'),
+        port=os.getenv('db_port', 5432)
+    )
+    
+    print("Conexión exitosa!")
+
+except Exception as e:
+    print(f"Error de conexión: {e}")
+
+finally:
+    if connection:
+        connection.close()
+        print("Conexión cerrada.")
