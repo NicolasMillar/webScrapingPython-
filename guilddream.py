@@ -4,6 +4,8 @@ import psycopg2
 import os 
 from dotenv import load_dotenv
 
+base_url = 'https://www.guildreams.com'
+
 def getBox(url):
     website = url
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
@@ -22,7 +24,8 @@ def getCardsInfo(box, booster, connection):
         for card in cards:
             card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
             card_price = card.find('div', class_='bs-product-final-price').text.strip()
-            print(card_price)
+            card_url = base_url + card.find('div', class_='bs-product-info').find('a')['href']
+            print(card_url)
 
 
 def getCardsList(limit, Baseurl, booster, connection):
