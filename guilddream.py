@@ -21,7 +21,8 @@ def getCardsInfo(box, booster, connection):
 
         for card in cards:
             card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
-            card_img = card.find('img').get('data-src')
+            card_price = card.find('div', class_='bs-product-final-price').text.strip()
+            print(card_price)
 
 
 def getCardsList(limit, Baseurl, booster, connection):
@@ -41,6 +42,7 @@ try:
     )
 
     print("Conexion realizada con exito")
+    getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt1', connection)
 
 except Exception as e:
     print(f"Error de conexión: {e}")
