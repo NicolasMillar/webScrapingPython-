@@ -25,7 +25,8 @@ def getCardsInfo(box, booster, connection):
             card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
             card_price = card.find('div', class_='bs-product-final-price').text.strip()
             card_url = base_url + card.find('div', class_='bs-product-info').find('a')['href']
-            print(card_url)
+            card_similar = getDataApi(card_name, booster)
+            print(card_similar)
 
 
 def getCardsList(limit, Baseurl, booster, connection):
@@ -33,6 +34,21 @@ def getCardsList(limit, Baseurl, booster, connection):
         url = f'{Baseurl}{page}'
         box = getBox(url)
         getCardsInfo(box, booster, connection)
+
+def getDataApi(name, booster):
+    api_url = "http://127.0.0.1:5000/cards"
+    params = {'cardName': name, 'booster': booster}
+
+    try:
+        response = requests.get(api_url, params=params)
+
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return {'error': f'Status Code: {response.status_code}, {response.text}'}
+
+    except requests.RequestException as e:
+        return {'error': str(e)}
 
 load_dotenv()
 try:
