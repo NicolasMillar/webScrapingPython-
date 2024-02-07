@@ -36,7 +36,7 @@ def getCardsList(limit, Baseurl, booster, connection):
         getCardsInfo(box, booster, connection)
 
 def getDataApi(name, booster):
-    api_url = "http://127.0.0.1:5000/cards"
+    api_url = os.getenv('api_url')
     params = {'cardName': name, 'booster': booster}
 
     try:
