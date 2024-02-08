@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import psycopg2 
+import Levenshtein
 import os 
 from dotenv import load_dotenv
 
@@ -25,8 +26,8 @@ def getCardsInfo(box, booster, connection):
             card_name = card.find('h2', class_='text-truncate mt-2 h6').text.strip()
             card_price = card.find('div', class_='bs-product-final-price').text.strip()
             card_url = base_url + card.find('div', class_='bs-product-info').find('a')['href']
-            card_similar = getDataApi(card_name, booster)
-            print(card_similar)
+            card_id = getDataApi(card_name, booster)
+            print(card_id)
 
 
 def getCardsList(limit, Baseurl, booster, connection):
@@ -43,12 +44,30 @@ def getDataApi(name, booster):
         response = requests.get(api_url, params=params)
 
         if response.status_code == 200:
-            return response.json()
+            data = response.json()
+
+            if len(data) == 1:
+                return data[0].get('id')
+            else:
+                return 0
         else:
             return {'error': f'Status Code: {response.status_code}, {response.text}'}
 
     except requests.RequestException as e:
         return {'error': str(e)}
+    
+
+def calculate_similarity(product_name, products):
+    max_similarity = 0.0
+    most_similar_product_id = None
+
+    for product_id, db_product_name in products:
+        similarity = Levenshtein.ratio(product_name.lower(), db_product_name.lower())
+        if similarity > max_similarity:
+            max_similarity = similarity
+            most_similar_product_id = product_id
+
+    return max_similarity, most_similar_product_id
 
 load_dotenv()
 try:
