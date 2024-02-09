@@ -49,6 +49,7 @@ def getDataApi(name, booster):
             if len(data) == 1:
                 return data[0].get('id')
             else:
+                calculate_similarity(name, data)
                 return 0
         else:
             return {'error': f'Status Code: {response.status_code}, {response.text}'}
@@ -57,17 +58,12 @@ def getDataApi(name, booster):
         return {'error': str(e)}
     
 
-def calculate_similarity(product_name, products):
-    max_similarity = 0.0
+def calculate_similarity(card_name, cards):
+    max_similarity = 0.8
     most_similar_product_id = None
 
-    for product_id, db_product_name in products:
-        similarity = Levenshtein.ratio(product_name.lower(), db_product_name.lower())
-        if similarity > max_similarity:
-            max_similarity = similarity
-            most_similar_product_id = product_id
-
-    return max_similarity, most_similar_product_id
+    for card in cards:
+        print(card.get('nombre'))
 
 load_dotenv()
 try:
