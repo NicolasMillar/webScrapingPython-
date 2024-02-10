@@ -35,7 +35,7 @@ def getCardsList(limit, Baseurl, booster, connection):
         url = f'{Baseurl}{page}'
         box = getBox(url)
         getCardsInfo(box, booster, connection)
-        print("pagina: "+page+" del booster: "+booster +" completada")
+        print(f"pagina: {page} del booster: {booster} completada")
 
 def getDataApi(name, booster):
     api_url = os.getenv('api_url')
@@ -79,7 +79,7 @@ def insertData(connection, id_tienda, id_card, price, card_url):
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (id_carta, id_tienda)
                 DO UPDATE SET precio = EXCLUDED.precio, card_url = EXCLUDED.card_url
-                RETURNING id;
+                RETURNING id_carta;
             """
             cursor.execute(sql_insert_or_update_carta, (id_card, id_tienda, price, card_url))
 
