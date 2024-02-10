@@ -70,6 +70,22 @@ def calculate_similarity(card_name, cards):
             id = card.get('id')
     return id
 
+def insertData(connection, id_tienda, id_card, price, card_url):
+    try:
+        with connection.cursor() as cursor:
+            sql_insert_or_update_carta = """
+                INSERT INTO Carta (id_carta, id_tienda, precio, card_url)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (id_carta, id_tienda)
+                DO UPDATE SET precio = EXCLUDED.precio, card_url = EXCLUDED.card_url
+                RETURNING id;
+            """
+            cursor.execute(sql_insert_or_update_carta, (id_card, id_tienda, price, card_url))
+
+        connection.commit()
+    except Exception as e:
+        print(f"Error durante la inserción o actualización: {id_card, id_tienda, e}")
+
 load_dotenv()
 try:
     connection = psycopg2.connect(
