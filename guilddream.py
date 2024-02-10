@@ -27,14 +27,15 @@ def getCardsInfo(box, booster, connection):
             card_price = card.find('div', class_='bs-product-final-price').text.strip()
             card_url = base_url + card.find('div', class_='bs-product-info').find('a')['href']
             card_id = getDataApi(card_name, booster)
-            print(card_id)
-
+            
+            insertData(connection, 1, card_id, card_price, card_url)
 
 def getCardsList(limit, Baseurl, booster, connection):
     for page in range(1, limit+1):
         url = f'{Baseurl}{page}'
         box = getBox(url)
         getCardsInfo(box, booster, connection)
+        print("pagina: "+page+" del booster: "+booster +" completada")
 
 def getDataApi(name, booster):
     api_url = os.getenv('api_url')
