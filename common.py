@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import Levenshtein
+import os
+import re
 
 def getBox(url):
     website = url
@@ -13,8 +15,28 @@ def getBox(url):
 
     return box
 
+def getDataApi():
+    api_url = os.getenv('api_url')
+
+    try:
+        response = requests.get(api_url)
+
+        if response.status_code == 200:
+            data = response.json()
+            return data;
+        else:
+            return {'error': f'Status Code: {response.status_code}, {response.text}'}
+
+    except requests.RequestException as e:
+        return {'error': str(e)}
+    
+def getCardId(name, cards):
+    filter_cards = [card for card in cards if name.lower() in card['nombre'].lower()]
+    id = calculate_similarity(name, filter_cards)
+    return id
+
 def calculate_similarity(card_name, cards):
-    max_similarity = 0.8
+    max_similarity = 0
     id = 0
 
     for card in cards:
@@ -23,6 +45,10 @@ def calculate_similarity(card_name, cards):
         if similarity > max_similarity:
             max_similarity = similarity
             id = card.get('id')
+
+    if(id == 0):
+        id = card[0].get('id')
+
     return id
 
 def insertData(connection, id_tienda, id_card, price, card_url):
