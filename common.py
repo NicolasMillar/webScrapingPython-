@@ -47,7 +47,7 @@ def calculate_similarity(card_name, cards):
             id = card.get('id')
 
     if(id == 0):
-        id = card[0].get('id')
+        id = cards[0].get('id')
 
     return id
 

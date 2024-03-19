@@ -18,6 +18,7 @@ def getCardsList(limit, Baseurl, booster, connection):
         url = f'{Baseurl}{page}'
         box = getBox(url)
         getCardsInfo(box, booster, connection)
+        print(f"pagina: {page} del booster: {booster} completada")
 
 def insertCard(connection, name, img, booster):
     try:
