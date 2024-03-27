@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import Levenshtein
 import os
-import re
 
 def getBox(url):
     website = url
