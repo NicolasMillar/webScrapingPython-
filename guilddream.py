@@ -20,7 +20,7 @@ def getCardsInfo(box, connection, cardsDB):
 def getCardsList(limit, Baseurl, booster, connection, cards):
     for page in range(1, limit+1):
         url = f'{Baseurl}{page}'
-        box = getBox(url)
+        box = getBox(url, 'article', 'col-lg-9')
         getCardsInfo(box, connection, cards)
         print(f"pagina: {page} del booster: {booster} completada")
 
@@ -35,7 +35,7 @@ try:
     )
 
     print("Conexion realizada con exito")
-    cards = getDataApi();
+    cards = getDataApi()
     getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt1-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt1', connection, cards)
     getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt2-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt2', connection, cards)
     getCardsList(7, 'https://www.guildreams.com/collection/digimon-bt3-release-special?limit=24&with_stock=0&smart_stock=0&order=name&way=ASC&page=', 'bt3', connection, cards)
