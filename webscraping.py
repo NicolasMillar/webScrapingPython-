@@ -16,7 +16,7 @@ def getCardsInfo(box, booster, connection):
 def getCardsList(limit, Baseurl, booster, connection):
     for page in range(1, limit+1):
         url = f'{Baseurl}{page}'
-        box = getBox(url)
+        box = getBox(url, 'article', 'col-lg-9')
         getCardsInfo(box, booster, connection)
         print(f"pagina: {page} del booster: {booster} completada")
 

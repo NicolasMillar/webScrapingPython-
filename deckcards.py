@@ -2,8 +2,6 @@ import psycopg2
 import os 
 from dotenv import load_dotenv
 from common import getBox,getDataApi, getCardId, insertData
-from bs4 import BeautifulSoup
-import requests
 
 load_dotenv()
 
