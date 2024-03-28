@@ -45,9 +45,6 @@ def calculate_similarity(card_name, cards):
             max_similarity = similarity
             id = card.get('id')
 
-    if(id == 0):
-        id = cards[0].get('id')
-
     return id
 
 def insertData(connection, id_tienda, id_card, price, card_url):

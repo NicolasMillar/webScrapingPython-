@@ -21,14 +21,16 @@ def getCardsInfo(box, cardsDb):
         for card in cards:
             aux = card.find('h3', class_= 'product-name').a
             card_name = aux.text.strip()
-            unwanted_words = ["Digimon", "Option", "Digi-Egg", "Tamer", "C", "U", "R", "SR", "SEC", "PR"] 
+            unwanted_words = ["Digimon", "Option", "Digi-Egg", "Tamer", " C", " U", " R", " SR", " SEC", " PR"] 
             for word in unwanted_words:
-                card_name = card_name.replace(word, '').rstrip()
+                card_name = re.sub(r'\b' + re.escape(word) + r'\b', '', card_name)
             card_name = re.sub(r'\s+', ' ', card_name).strip()
+
             card_url = baseUrl + aux['href']
             card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '').rstrip()
+            card_id = getCardId(card_name, cardsDb)
             
-            print(card_name)
+            print(card_id)
 
 try:
     connection = psycopg2.connect(
