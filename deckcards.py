@@ -21,8 +21,9 @@ def getCardsInfo(box):
             aux = card.find('h3', class_= 'product-name').a
             card_name = aux.text.strip()
             card_url = baseUrl + aux['href']
-
-            print(card_url)
+            card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '')
+            
+            print(card_price)
 
 try:
     connection = psycopg2.connect(
