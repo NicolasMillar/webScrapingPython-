@@ -22,10 +22,10 @@ def getCardsInfo(box, cardsDb):
             card_name = aux.text.strip()
             unwanted_words = ["Digimon", "Option", "Digi-Egg", "Tamer"]
             for word in unwanted_words:
-                card_name = card_name.replace(word, '')
+                card_name = card_name.replace(word, '').rstrip()
 
             card_url = baseUrl + aux['href']
-            card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '')
+            card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '').rstrip()
             
             print(card_name)
 
