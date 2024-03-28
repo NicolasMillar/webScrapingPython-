@@ -45,6 +45,11 @@ def calculate_similarity(card_name, cards):
             max_similarity = similarity
             id = card.get('id')
 
+    if(id == 0):
+        name = card_name[card_name.rfind(" ") + 1:]
+        newCards = getNameApi(name)
+        return calculate_similarity(card_name, newCards)
+
     return id
 
 def insertData(connection, id_tienda, id_card, price, card_url):
@@ -62,3 +67,19 @@ def insertData(connection, id_tienda, id_card, price, card_url):
         connection.commit()
     except Exception as e:
         print(f"Error durante la inserción o actualización: {id_card, id_tienda, e}")
+
+def getNameApi(card_name):
+    api_url = os.getenv('api_url')
+
+    try:
+        params = {'cardName' : card_name}
+        response = requests.get(api_url, params=params)
+
+        if response.status_code == 200:
+            data = response.json()
+            return data;
+        else:
+            return {'error': f'Status Code: {response.status_code}, {response.text}'}
+
+    except requests.RequestException as e:
+        return {'error': str(e)}
