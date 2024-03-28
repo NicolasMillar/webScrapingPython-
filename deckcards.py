@@ -4,13 +4,25 @@ from dotenv import load_dotenv
 from common import getBox,getDataApi, getCardId, insertData
 
 load_dotenv()
-
+baseUrl = 'https://www.deckscards.cl/'
 
 def getCardsList(limit, url, booster):
     for page in range(1, limit+1):
         pageUrl = f'{url}{page}'
         box = getBox(pageUrl, 'div', 'box-product row')
-        print(box)
+        getCardsInfo(box)
+        print(f"pagina: {page} del booster: {booster} completada")
+
+def getCardsInfo(box):
+    if box:
+        cards = box.find_all('div', class_='col-md-4 col-xs-6')
+
+        for card in cards:
+            aux = card.find('h3', class_= 'product-name').a
+            card_name = aux.text.strip()
+            card_url = baseUrl + aux['href']
+
+            print(card_url)
 
 try:
     connection = psycopg2.connect(
