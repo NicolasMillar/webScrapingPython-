@@ -1,0 +1,207 @@
+pagina: 1 del booster: bt1 completada
+pagina: 2 del booster: bt1 completada
+pagina: 3 del booster: bt1 completada
+pagina: 2 del booster: bt2 completada
+pagina: 3 del booster: bt2 completada
+Error de conexión: maximum recursion depth exceeded while calling a Python object
+PS D:\code\python\webscraper2> python deckcards.py
+Conexion realizada con exito
+pagina: 1 del booster: bt1 completada
+pagina: 2 del booster: bt1 completada
+pagina: 3 del booster: bt1 completada
+pagina: 1 del booster: bt2 completada
+pagina: 2 del booster: bt2 completada
+pagina: 3 del booster: bt2 completada
+Error conMillennium-Eyes Restrict - MAMA-EN064 - Ultra Rare 1st Edition
+pagina: 4 del booster: bt2 completada
+pagina: 1 del booster: bt4 completada
+Error conBT4-047 Rasielmon
+pagina: 2 del booster: bt4 completada
+pagina: 3 del booster: bt4 completada
+Error conBT4-101 I'll Drag You Into the Depths!...
+pagina: 4 del booster: bt4 completada
+pagina: 5 del booster: bt4 completada
+Error conBT5-002 Tsunomon ()
+Error conBT5-003 Pickmon ()
+Error conBT5-004 Yokomon ()
+Error conBT5-005 Tsumemon ()
+Error conBT5-006 Gigimon ()
+Error conBT5-007 Agumon ()
+Error conBT5-008 Gaossmon ()
+Error conBT5-009 Shoutmon ()
+Error conBT5-011 Meramon ()
+Error conBT5-012 Monochromon ()
+Error conBT5-013 Triceramon ()
+Error conBT5-014 OmniShoutmon ()
+Error conBT5-016 WarGreymon ()
+Error conBT5-017 ZeigGreymon ()
+Error conBT5-018 Dorbickmon ()
+Error conBT5-020 Gabumon ()
+Error conBT5-021 Syakomon ()
+Error conBT5-023 Gesomon ()
+Error conBT5-024 Garurumon ()
+Error conBT5-025 Paledramon ()
+Error conBT5-026 Coelamon ()
+Error conBT5-027 MarineDevimon ()
+Error conBT5-028 CrysPaledramon ()
+Error conBT5-029 WereGarurumon: Sagittarius Mode ()
+Error conBT5-030 Neptunemon ()
+Error conBT5-031 MetalGarurumon ()
+Error conBT5-033 Cutemon ()
+pagina: 1 del booster: bt5 completada
+Error conBT5-034 Kotemon ()
+Error conBT5-035 Starmons ()
+Error conBT5-037 Gladimon ()
+Error conBT5-038 Kyubimon ()
+Error conBT5-039 ShootingStarmon ()
+Error conBT5-040 SuperStarmon ()
+Error conBT5-041 Taomon ()
+Error conBT5-042 Knightmon ()
+Error conBT5-043 Jijimon ()
+Error conBT5-046 Terriermon Assistant ()
+Error conBT5-047 Palmon ()
+Error conBT5-048 Floramon ()
+Error conBT5-049 Kiwimon ()
+Error conBT5-050 Weedmon ()
+Error conBT5-051 MoriShellmon ()
+Error conBT5-052 Garbagemon ()
+Error conBT5-053 Deramon ()
+Error conBT5-054 Piximon ()
+Error conBT5-055 BanchoLillymon ()
+Error conBT5-057 Rosemon ()
+Error conBT5-058 Argomon ()
+Error conBT5-059 Keramon ()
+Error conBT5-060 Monitamon ()
+Error conBT5-061 Commandramon ()
+Error conBT5-062 Mekanorimon ()
+Error conBT5-063 Kurisarimon ()
+Error conBT5-064 BlackGaogamon ()
+pagina: 2 del booster: bt5 completada
+Error conBT5-065 Shademon ()
+Error conBT5-066 WaruMonzaemon ()
+Error conBT5-067 Infermon ()
+Error conBT5-068 BlackMachGaogamon ()
+Error conBT5-072 Fake Agumon Expert ()
+Error conBT5-073 Pillomon ()
+Error conBT5-074 Troopmon ()
+Error conBT5-075 Musyamon ()
+Error conBT5-076 BlackGrowlmon ()
+Error conBT5-077 Vajramon ()
+Error conBT5-078 Jokermon ()
+Error conBT5-080 Zanbamon ()
+Error conBT5-082 Tactimon ()
+Error conBT5-083 Megidramon ()
+Error conBT5-084 Diaboromon ()
+Error conBT5-090 Arata Sanada ()
+Error conBT5-093 Tai Kamiya & Matt Ishida ()
+Error conBT5-094 Rowdy Rocker ()
+Error conBT5-095 Trascendent Sword ()
+Error conBT5-096 Supreme Cannon ()
+Error conBT5-097 Absolute Blast ()
+Error conBT5-098 Meteor Shower ()
+Error conBT5-099 Spiral Masquerade ()
+Error conBT5-100 Royal Nuts ()
+Error conBT5-101 You Can't Actually Fly? ()
+Error conBT5-102 Wisselen ()
+Error conBT5-103 A Blazing Storm of Metal! ()
+Error conBT5-104 Catastrophe Cannon ()
+Error conBT5-105 Ultimate Flare ()
+pagina: 3 del booster: bt5 completada
+Error conBT5-106 Demonic Disaster ()
+Error conBT5-107 Revive From the Drakness! ()
+Error conBT5-108 Earth Shaker ()
+Error conBT5-109 Mega Fusion! ()
+Error conBT5-110 All Delete ()
+pagina: 4 del booster: bt5 completada
+Error conBT6-039 Mammothmon
+Error conBT6-043 SkullMammothmon
+pagina: 1 del booster: bt6 completada
+Error conBT6-053 Eldradimon
+Error conBT6-054 AncientTroymon
+Error conBT6-063 BigMamemon
+Error conBT6-076 Feresmon
+pagina: 2 del booster: bt6 completada
+Error conBT6-092 Menoa Bellucci
+pagina: 3 del booster: bt6 completada
+Error conBT7-039 Stefilmon
+pagina: 1 del booster: bt7 completada
+Error conBT7-066 AncientVolcanomon
+pagina: 2 del booster: bt7 completada
+pagina: 3 del booster: bt7 completada
+Error conBT8-011 Cyclonemon
+Error conBT8-016 MasterTyrannomon
+pagina: 1 del booster: bt8 completada
+Error conBT8-061 Thundermon
+pagina: 2 del booster: bt8 completada
+Error conBT8-101 Plasma Shot
+Error conBT8-104 Eiseiryūoujin
+Error conBT8-106 Senbon Dokkān
+pagina: 3 del booster: bt8 completada
+Error conBT9-003 Tokomon -X Antibody-
+Error conBT9-011 Growlmon -X Antibody-
+Error conBT9-013 OmniShoutmon -X Antibody-
+Error conBT9-024 Garurumon -X Antibody-
+Error conBT9-029 Sujinmon
+Error conBT9-034 Salamon -X Antibody-
+Error conBT9-036 Gatomon -X Antibody-
+Error conBT9-043 Magnadramon -X Antibody-
+pagina: 1 del booster: bt9 completada
+Error conBT9-046 Kokuwamon -X Antibody-
+Error conBT9-049 Kuwagamon -X Antibody-
+Error conBT9-050 Leomon -X Antibody-
+Error conBT9-051 Panjyamon -X Antibody-
+Error conBT9-052 Okuwamon -X Antibody-
+Error conBT9-070 Gazimon -X Antibody-
+pagina: 2 del booster: bt9 completada
+pagina: 3 del booster: bt9 completada
+Error conBT10-021 MailBirdamon
+pagina: 1 del booster: bt10 completada
+Error conBT10-047 RedVegiemon
+pagina: 2 del booster: bt10 completada
+pagina: 3 del booster: bt10 completada
+Error conBT11-011 Birdamon
+pagina: 1 del booster: bt11 completada
+Error conBT11-064 Greymon -X Antibody-
+pagina: 2 del booster: bt11 completada
+Error conBT12-011 Shoutmon -King Version-
+pagina: 1 del booster: bt12 completada
+Error conBT12-041 Cho-Hakkaimon
+Error conBT12-073 Impmon -X Antibody-
+pagina: 2 del booster: bt12 completada
+Error conBT12-078 Wizardmon -X Antibody-
+pagina: 3 del booster: bt12 completada
+pagina: 4 del booster: bt12 completada
+Error conBT13-024 Gwappamon
+Error conBT13-027 Shaujamon
+pagina: 1 del booster: bt13 completada
+pagina: 2 del booster: bt13 completada
+pagina: 3 del booster: bt13 completada
+pagina: 1 del booster: bt14 completada
+Error conBT14-070 Goblinmon
+pagina: 2 del booster: bt14 completada
+pagina: 3 del booster: bt14 completada
+pagina: 1 del booster: ex1 completada
+pagina: 2 del booster: ex1 completada
+Error conEX2-028 Parasitemon
+Error conEX2-042 Mephistomon
+pagina: 1 del booster: ex2 completada
+pagina: 2 del booster: ex2 completada
+pagina: 1 del booster: ex3 completada
+Error conFigura Acrílica - Acrylic Sheet ( Gift Box 2022)
+pagina: 2 del booster: ex3 completada
+Error conEX4-018 MailBirdamon
+pagina: 1 del booster: ex4 completada
+pagina: 2 del booster: ex4 completada
+Error conEX5-015 Gabumon -X Antibody-
+Error conEX5-018 Garurumon -X Antibody-
+pagina: 1 del booster: ex5 completada
+Error conEX5-023 WereGarurumon -X Antibody-
+Error conEX5-026 (Alternative Art) MetalGarurumon -X Antibody-
+Error conEX5-026 (Alternative Art) MetalGarurumon -X Antibody-
+Error conEX5-026 (Alternative Art) MetalGarurumon -X Antibody-
+Error conEX5-043 (Alternative Art) Leopardmon -X Antibody-
+Error conEX5-043 Leopardmon -X Antibody-
+Error conEX5-061 Cerberusmon -X Antibody-
+pagina: 3 del booster: ex5 completada
+pagina: 4 del booster: ex5 completada
+Conexión cerrada.
