@@ -7,14 +7,14 @@ from common import getBox,getDataApi, getCardId, insertData
 load_dotenv()
 baseUrl = 'https://www.deckscards.cl/'
 
-def getCardsList(limit, url, booster, cards):
+def getCardsList(limit, url, booster, cards, connection):
     for page in range(1, limit+1):
         pageUrl = f'{url}{page}'
         box = getBox(pageUrl, 'div', 'box-product row')
-        getCardsInfo(box, cards)
+        getCardsInfo(box, cards, connection)
         print(f"pagina: {page} del booster: {booster} completada")
 
-def getCardsInfo(box, cardsDb):
+def getCardsInfo(box, cardsDb, connection):
     if box:
         cards = box.find_all('div', class_='col-md-4 col-xs-6')
 
@@ -30,7 +30,7 @@ def getCardsInfo(box, cardsDb):
             card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '').rstrip()
             card_id = getCardId(card_name, cardsDb)
             
-            print(card_id)
+            insertData(connection, 2, card_id, card_price, card_url)
 
 try:
     connection = psycopg2.connect(
@@ -43,7 +43,7 @@ try:
 
     print("Conexion realizada con exito")
     cards = getDataApi()
-    getCardsList(3, 'https://www.deckscards.cl/digimon/booster-ver10?sorting=name-asc&page=', 'bt1', cards)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/booster-ver10?sorting=name-asc&page=', 'bt1', cards, connection)
 
 except Exception as e:
     print(f"Error de conexión: {e}")
