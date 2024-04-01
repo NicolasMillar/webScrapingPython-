@@ -31,10 +31,10 @@ def getDataApi():
     
 def getCardId(name, cards):
     filter_cards = [card for card in cards if name.lower() in card['nombre'].lower()]
-    id = calculate_similarity(name, filter_cards)
+    id = calculate_similarity(name, filter_cards, 0)
     return id
 
-def calculate_similarity(card_name, cards):
+def calculate_similarity(card_name, cards, count):
     max_similarity = 0
     id = 0
 
@@ -45,10 +45,11 @@ def calculate_similarity(card_name, cards):
             max_similarity = similarity
             id = card.get('id')
 
-    if(id == 0):
+    if(id == 0 and count<1):
         name = card_name[card_name.rfind(" ") + 1:]
         newCards = getNameApi(name)
-        return calculate_similarity(card_name, newCards)
+        count += 1
+        return calculate_similarity(card_name, newCards, count)
 
     return id
 

@@ -25,12 +25,17 @@ def getCardsInfo(box, cardsDb, connection):
             for word in unwanted_words:
                 card_name = re.sub(r'\b' + re.escape(word) + r'\b', '', card_name)
             card_name = re.sub(r'\s+', ' ', card_name).strip()
+            if "(Holo)" in card_name:
+                card_name = re.sub(r'(\s-\sP-\d{3})\s\(Holo\)', r' (Foil)\1', card_name)
 
             card_url = baseUrl + aux['href']
             card_price = card.find('span', class_= 'final_price').text.strip().replace('CLP', '').rstrip()
             card_id = getCardId(card_name, cardsDb)
             
-            insertData(connection, 2, card_id, card_price, card_url)
+            if(card_id != 0):
+                insertData(connection, 2, card_id, card_price, card_url)
+            else:
+                print("Error con" + card_name)
 
 try:
     connection = psycopg2.connect(
@@ -44,6 +49,23 @@ try:
     print("Conexion realizada con exito")
     cards = getDataApi()
     getCardsList(3, 'https://www.deckscards.cl/digimon/booster-ver10?sorting=name-asc&page=', 'bt1', cards, connection)
+    getCardsList(4, 'https://www.deckscards.cl/booster-ver-15?sorting=name-asc&page=', 'bt2', cards, connection)
+    getCardsList(5, 'https://www.deckscards.cl/digimon/bt4?sorting=name-asc&page=', 'bt4', cards, connection)
+    getCardsList(4, 'https://www.deckscards.cl/digimon/bt5?sorting=name-asc&page=', 'bt5', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/bt6?sorting=name-asc&page=', 'bt6', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/ediciones/bt7?sorting=name-asc&page=', 'bt7', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/ediciones/bt8?sorting=name-asc&page=', 'bt8', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/bt9?sorting=name-asc&page=', 'bt9', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/bt10?sorting=name-asc&page=', 'bt10', cards, connection)
+    getCardsList(2, 'https://www.deckscards.cl/digimon/ediciones/bt-11-booster-dimensional-phase?sorting=name-asc&page=', 'bt11', cards, connection)
+    getCardsList(4, 'https://www.deckscards.cl/digimon/ediciones/bt-12-across-time?sorting=name-asc&page=', 'bt12', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/ediciones/bt13-versus-royal-knights?sorting=name-asc&page=', 'bt13', cards, connection)
+    getCardsList(3, 'https://www.deckscards.cl/digimon/ediciones/2023/bt14-blast-ace?sorting=name-asc&page=', 'bt14', cards, connection)
+    getCardsList(2, 'https://www.deckscards.cl/digimon/ediciones/classic-collection-ex-01?sorting=name-asc&page=', 'ex1', cards, connection)
+    getCardsList(2, 'https://www.deckscards.cl/digimon/ediciones/ex-02?sorting=name-asc&page=', 'ex2', cards, connection)
+    getCardsList(2, 'https://www.deckscards.cl/digimon/ediciones/ex-03-draconic-roar?sorting=name-asc&page=', 'ex3', cards, connection)
+    getCardsList(2, 'https://www.deckscards.cl/digimon/ediciones/ex04-alternative-being?sorting=name-asc&page=', 'ex4', cards, connection)
+    getCardsList(4, 'https://www.deckscards.cl/digimon/ediciones/2024/ex-05-animal-colosseum?sorting=name-asc&page=', 'ex5', cards, connection)
 
 except Exception as e:
     print(f"Error de conexión: {e}")
